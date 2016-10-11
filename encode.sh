@@ -26,3 +26,6 @@ docker run --rm \
   -v ${output}.log:/tmp/${output}.log:rw \
   danbo/handbrake \
   /bin/bash -c "HandBrakeCLI $vparams $aparams -i \"/tmp/${input}\" -o \"/tmp/${output}\" 2>\"/tmp/${output}.log\""
+
+# update output file date to match input file date
+touch -r "$input" "$output"
